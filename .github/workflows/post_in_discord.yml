@@ -9,9 +9,10 @@ jobs:
 
     steps:
       - name: Post to Discord
-        uses: Ilshidur/github-actions
+        uses: ./.github/workflows/post_in_discord.yml
+        env:
+            DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
-          env: DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           args: |
             --title "GitHub Actions"
             --description "First test message from GitHub Actions!"
