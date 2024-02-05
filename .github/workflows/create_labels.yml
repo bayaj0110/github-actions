@@ -22,3 +22,7 @@ jobs:
 
       - name: Trigger Command
         run: echo "Command Triggered" 
+
+      - name: extract_labels
+        run: |
+          echo labels="`ls -m *.TODO | sed -e 's/.TODO//g' | sed -e 's/,//g'`" >> $GITHUB_OUTPUT
