@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Post to Discord
-        uses: ./.github/workflows/post_in_discord.yml
+        uses: Ilshidur/action-discord@0.3.2
         env:
             DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
