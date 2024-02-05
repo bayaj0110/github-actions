@@ -1,11 +1,25 @@
 name: create_labels
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main 
 
 jobs:
+  post-to-discord:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: create and extract labels
+        uses: Ilshidur/action-discord@0.3.2
+        env:
+            DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: |
+            --title "Create and Extract"
+            --description "Create and Extract labels"
+
   create_labels:
     runs-on: ubuntu-latest
 
